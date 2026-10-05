@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BlockItemMixin {
 
     @Inject(method = "canPlace", at = @At("HEAD"), cancellable = true)
-    private void allowCobwebPlacementInsideEntities(ItemPlacementContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        // Разрешаем установку паутины даже при пересечении хитбокса
+    private void allowCobwebInEntity(ItemPlacementContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (context.getStack().isOf(Items.COBWEB)) {
+            // Если опорный блок позволяет размещение паутины — одобряем установку
             if (state.canPlaceAt(context.getWorld(), context.getBlockPos())) {
                 cir.setReturnValue(true);
             }
