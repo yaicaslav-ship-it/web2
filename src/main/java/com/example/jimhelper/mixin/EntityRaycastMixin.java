@@ -33,13 +33,11 @@ public abstract class EntityRaycastMixin {
     ) {
         MinecraftClient client = MinecraftClient.getInstance();
 
-        // Если луч рассчитывается от лица локального игрока
         if (client.player != null && entity == client.getCameraEntity()) {
             boolean holdingWeb = client.player.getMainHandStack().isOf(Items.COBWEB)
                               || client.player.getOffHandStack().isOf(Items.COBWEB);
 
             if (holdingWeb) {
-                // Отменяем захват хитбокса любой сущности
                 cir.setReturnValue(null);
             }
         }
