@@ -4,8 +4,7 @@
   "package": "com.example.jimhelper.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "GameRendererMixin",
-    "BlockItemMixin"
+    "EntityRaycastMixin"
   ],
   "injectors": {
     "defaultRequire": 1
